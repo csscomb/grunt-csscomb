@@ -1,6 +1,6 @@
 # grunt-csscomb
 
-> The best Grunt plugin ever.
+> The grunt plugin for sorting CSS properties in specific order. 
 
 ## Getting Started
 This plugin requires Grunt `~0.4.1`
