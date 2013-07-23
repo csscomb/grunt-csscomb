@@ -1,6 +1,8 @@
-language: php
-php:
-  - 5.5
+language: node_js
+node_js:
+  - "0.8"
+  - "0.10"
 before_install:
-  - apt-get install nodejs npm
+  - sudo apt-get update
+  - sudo apt-get install php5
   - npm install -g grunt-cli
