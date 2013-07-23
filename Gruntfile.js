@@ -25,27 +25,19 @@ module.exports = function(grunt) {
 
     // Before generating any new files, remove any previously-created files.
     clean: {
-      tests: ['tmp'],
+      tests: ['test/fixtures/tmp.css'],
     },
 
     // Configuration to be run (and then tested).
     csscomb: {
       default_options: {
         options: {
+          // sortOrder:'';
         },
         files: {
-          'tmp/default_options': ['test/fixtures/testing', 'test/fixtures/123'],
+          'test/fixtures/tmp.css': ['test/fixtures/style.css'],
         },
-      },
-      custom_options: {
-        options: {
-          separator: ': ',
-          punctuation: ' !!!',
-        },
-        files: {
-          'tmp/custom_options': ['test/fixtures/testing', 'test/fixtures/123'],
-        },
-      },
+      }
     },
 
     // Unit tests.

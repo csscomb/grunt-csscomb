@@ -13,18 +13,38 @@ module.exports = function(grunt) {
   // Please see the Grunt documentation for more information regarding task
   // creation: http://gruntjs.com/creating-tasks
 
-  grunt.registerMultiTask('csscomb', 'Your task description goes here.', function() {
+  grunt.registerMultiTask('csscomb', 'Sorting CSS properties in specific order.', function() {
     // Merge task-specific and/or target-specific options with these defaults.
     var options = this.options({
-      punctuation: '.',
-      separator: ', '
+      sortOrder: null
     });
 
-    // Iterate over all specified file groups.
-    this.files.forEach(function(f) {
-      // Concat specified files.
-      var src = f.src.filter(function(filepath) {
-        // Warn on and remove invalid source files (if nonull was set).
+    if (options.sortOrder !== null) {
+      var optCmd = '-s ' + options.sortOrder;
+    }
+
+    // Tell grunt this task is asynchronous.
+    var done    = this.async(),
+        exec    = require('child_process').exec,
+        command = '';
+
+    // Output Command Line
+    // grunt.log.writeln('`titanium ' + command.args.join(' ') + '` was initiated.');
+
+    function puts( error, stdout, stderr ) {
+        grunt.log.write( stdout );
+        if ( error !== null ) {
+            grunt.log.error( error );
+            done(false);
+        }
+        else {
+            done(true);
+        }
+    }
+
+    this.files.forEach(function(file) {
+      var fileSrc = file.src.filter(function(filepath) {
+        // Remove nonexistent files (it's up to you to filter or warn here).
         if (!grunt.file.exists(filepath)) {
           grunt.log.warn('Source file "' + filepath + '" not found.');
           return false;
@@ -32,19 +52,14 @@ module.exports = function(grunt) {
           return true;
         }
       }).map(function(filepath) {
-        // Read file source.
-        return grunt.file.read(filepath);
-      }).join(grunt.util.normalizelf(options.separator));
+        return filepath;
+      });
 
-      // Handle options.
-      src += options.punctuation;
+      command = "php tasks/lib/csscomb.php -i " + fileSrc + " -o " + file.dest;
 
-      // Write the destination file.
-      grunt.file.write(f.dest, src);
+      exec( command, puts );
+      grunt.log.write( '`' + command + '` was initiated.' );
 
-      // Print a success message.
-      grunt.log.writeln('File "' + f.dest + '" created.');
     });
   });
-
 };
