@@ -4,9 +4,6 @@
 
 ## Getting Started
 
-CSScomb is written in pure PHP, without any external libraries or dependencies.
-https://github.com/csscomb/CSScomb/wiki/Requirements
-
 This plugin requires Grunt `~0.4.1` and [requires PHP.](https://github.com/csscomb/CSScomb/wiki/Requirements)
 
 If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
