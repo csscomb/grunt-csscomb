@@ -11,9 +11,13 @@ module.exports = function (grunt) {
 
   grunt.registerMultiTask('csscomb', 'Sorting CSS properties in specific order.', function () {
 
+    var fs = require('fs'),
+        path = require('path'),
+        exec = require('child_process').exec;
+
     var done = this.async(),
-        exec = require('child_process').exec,
-        cssComb = 'php tasks/lib/csscomb.php -i ',
+        realPath = path.dirname(fs.realpathSync(__filename)),
+        cssComb = 'php ' + realPath + '/lib/csscomb.php -i ',
         fileSrc = '',
         fileDest = '',
         fileSort = '',
@@ -60,7 +64,7 @@ module.exports = function (grunt) {
       var command = cssComb + fileSrc + fileDest + fileSort;
       exec(command, puts);
 
-      grunt.log.writeln('`' + command + '` was initiated.');
+      // grunt.log.writeln('`' + command + '` was initiated.');
 
     });
 

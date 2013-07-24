@@ -47,12 +47,9 @@ A string value that is used to specify file path.
 
 ### Usage Examples
 
-#### Default Options
-
 ```js
 grunt.initConfig({
   csscomb: {
-    options: {},
     files: {
       'dest/resorted-foo.css': ['src/foo.css'],
     },
@@ -79,4 +76,5 @@ grunt.initConfig({
 
 ## Release History
 
++ v0.2.0: Fix bugs.
 + v0.1.0: Release.
