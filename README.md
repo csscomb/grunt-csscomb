@@ -3,7 +3,11 @@
 > The grunt plugin for sorting CSS properties in specific order. 
 
 ## Getting Started
-This plugin requires Grunt `~0.4.1` and requires **PHP5**
+
+CSScomb is written in pure PHP, without any external libraries or dependencies.
+https://github.com/csscomb/CSScomb/wiki/Requirements
+
+This plugin requires Grunt `~0.4.1` and [requires PHP.](https://github.com/csscomb/CSScomb/wiki/Requirements)
 
 If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
 
@@ -52,31 +56,30 @@ A string value that is used to do something else with whatever else.
 ### Usage Examples
 
 #### Default Options
-In this example, the default options are used to do something with whatever. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result would be `Testing, 1 2 3.`
 
 ```js
 grunt.initConfig({
   csscomb: {
     options: {},
     files: {
-      'dest/default_options': ['src/testing', 'src/123'],
+      'dest/resorted-foo.css': ['src/foo.css'],
     },
   },
 })
 ```
 
 #### Custom Options
-In this example, custom options are used to do something else with whatever else. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result in this case would be `Testing: 1 2 3 !!!`
+
+You can set the `sortOrder` option if you want to use the order to which you are accustomed to.
 
 ```js
 grunt.initConfig({
   csscomb: {
     options: {
-      separator: ': ',
-      punctuation: ' !!!',
+      sortOrder: 'path-to-your-custom-sort-order.json'
     },
     files: {
-      'dest/default_options': ['src/testing', 'src/123'],
+      'dest/resorted-foo.css': ['src/foo.css'],
     },
   },
 })
@@ -86,4 +89,5 @@ grunt.initConfig({
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
-_(Nothing yet)_
+
++ v0.1.0: Release.

@@ -31,13 +31,18 @@ module.exports = function(grunt) {
     // Configuration to be run (and then tested).
     csscomb: {
       default_options: {
-        options: {
-          // sortOrder:'';
-        },
         files: {
           'test/fixtures/tmp.css': ['test/fixtures/style.css'],
-        },
+        }
       }
+      //sort_options: {
+      //  options: {
+      //    sortOrder: 'test/fixtures/custom-sort-order.json'
+      //  },
+      //  files: {
+      //    'test/fixtures/tmp.css': ['test/fixtures/style.css'],
+      //  }
+      //}
     },
 
     // Unit tests.
