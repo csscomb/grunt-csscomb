@@ -41,17 +41,12 @@ grunt.initConfig({
 
 ### Options
 
-#### options.separator
+#### options.sortOrder
 Type: `String`
-Default value: `',  '`
+Default value: `null`
 
-A string value that is used to do something with whatever.
+A string value that is used to specify file path.
 
-#### options.punctuation
-Type: `String`
-Default value: `'.'`
-
-A string value that is used to do something else with whatever else.
 
 ### Usage Examples
 
@@ -84,9 +79,6 @@ grunt.initConfig({
   },
 })
 ```
-
-## Contributing
-In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
 
