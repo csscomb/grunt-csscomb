@@ -794,7 +794,7 @@ class csscomb{
             }
         }
 
-        if ($json_array === 'yandex') {
+        if ($json_array === 'zen') {
             $this->sort_order = json_decode($this->yandex_sort_order);
             //switch(json_last_error()) {
                 //case JSON_ERROR_DEPTH:
