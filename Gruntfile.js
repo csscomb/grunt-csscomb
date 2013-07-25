@@ -25,14 +25,14 @@ module.exports = function(grunt) {
 
     // Before generating any new files, remove any previously-created files.
     clean: {
-      tests: ['test/fixtures/tmp/*.css'],
+      tests: ['test/fixtures/tmp_*.css'],
     },
 
     // Configuration to be run (and then tested).
     csscomb: {
       default_option: {
         files: {
-          'test/fixtures/tmp/resort.css': ['test/fixtures/style.css'],
+          'test/fixtures/tmp_resort.css': ['test/fixtures/style.css'],
         }
       },
       sort_option: {
@@ -40,7 +40,7 @@ module.exports = function(grunt) {
           sortOrder: 'test/fixtures/sort.json'
         },
         files: {
-          'test/fixtures/tmp/customsort.css': ['test/fixtures/style.css'],
+          'test/fixtures/tmp_customsort.css': ['test/fixtures/style.css'],
         }
       }
     },
