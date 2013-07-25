@@ -76,5 +76,6 @@ grunt.initConfig({
 
 ## Release History
 
++ v0.3.0: Fix sort option bug.
 + v0.2.0: Fix bugs.
 + v0.1.0: Release.

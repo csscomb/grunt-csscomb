@@ -32,7 +32,7 @@ exports.csscomb = {
 
     var actual = grunt.file.read('test/fixtures/tmp/resort.css');
     var expected = grunt.file.read('test/expected/resort.css');
-    test.equal(actual, expected, 'should describe what the default behavior is.');
+    test.equal(actual, expected, 'sholud be sorted.');
 
     test.done();
   },
@@ -41,7 +41,7 @@ exports.csscomb = {
 
     var actual = grunt.file.read('test/fixtures/tmp/customsort.css');
     var expected = grunt.file.read('test/expected/customsort.css');
-    test.equal(actual, expected, 'should describe what the default behavior is.');
+    test.equal(actual, expected, 'sholud be custom sorted.');
 
     test.done();
   }
