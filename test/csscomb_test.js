@@ -27,11 +27,20 @@ exports.csscomb = {
     // setup here if necessary
     done();
   },
-  default_options: function(test) {
+  default_option: function(test) {
     test.expect(1);
 
-    var actual = grunt.file.read('test/fixtures/tmp.css');
-    var expected = grunt.file.read('test/expected/resorted.css');
+    var actual = grunt.file.read('test/fixtures/tmp/resort.css');
+    var expected = grunt.file.read('test/expected/resort.css');
+    test.equal(actual, expected, 'should describe what the default behavior is.');
+
+    test.done();
+  },
+  sort_option: function(test) {
+    test.expect(1);
+
+    var actual = grunt.file.read('test/fixtures/tmp/customsort.css');
+    var expected = grunt.file.read('test/expected/customsort.css');
     test.equal(actual, expected, 'should describe what the default behavior is.');
 
     test.done();

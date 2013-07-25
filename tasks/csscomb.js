@@ -17,7 +17,7 @@ module.exports = function (grunt) {
 
     var done = this.async(),
         realPath = path.dirname(fs.realpathSync(__filename)),
-        cssComb = 'php ' + realPath + '/lib/csscomb.php -i ',
+        cssComb = 'php ' + realPath + '/lib/csscomb.php',
         fileSrc = '',
         fileDest = '',
         fileSort = '',
@@ -57,11 +57,12 @@ module.exports = function (grunt) {
         return filepath;
       });
 
+      fileSrc = ' -i ' + fileSrc;
       if (file.dest !== null) {
         fileDest = ' -o ' + file.dest;
       }
 
-      var command = cssComb + fileSrc + fileDest + fileSort;
+      var command = cssComb + fileSort + fileSrc + fileDest;
       exec(command, puts);
 
       // grunt.log.writeln('`' + command + '` was initiated.');
