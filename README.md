@@ -42,7 +42,7 @@ grunt.initConfig({
 Type: `String`
 Default value: `null`
 
-A string value that is used to specify file path.
+A string value that is used to specify custom-sort-order.json file path.
 
 
 ### Usage Examples
@@ -65,7 +65,7 @@ You can set the `sortOrder` option if you want to use the order to which you are
 grunt.initConfig({
   csscomb: {
     options: {
-      sortOrder: 'path-to-your-custom-sort-order.json'
+      sortOrder: 'path-to-your-custom-sort-order.json '
     },
     files: {
       'dest/resorted-foo.css': ['src/foo.css'],
