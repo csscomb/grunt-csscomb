@@ -1,8 +1,8 @@
 {
   "name": "grunt-csscomb",
   "description": "The grunt plugin for sorting CSS properties in specific order.",
-  "version": "0.3.0",
-  "homepage": "https://github.com/t32k/grunt-csscomb",
+  "version": "0.4.0",
+  "homepage": "https://github.com/csscomb/grunt-csscomb",
   "author": {
     "name": "Koji Ishimoto",
     "email": "ijok.ijok@gmail.com",
@@ -10,15 +10,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/t32k/grunt-csscomb.git"
+    "url": "https://github.com/csscomb/grunt-csscomb.git"
   },
   "bugs": {
-    "url": "https://github.com/t32k/grunt-csscomb/issues"
+    "url": "https://github.com/csscomb/grunt-csscomb/issues"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/t32k/grunt-csscomb/blob/master/LICENSE-MIT"
+      "url": "https://github.com/csscomb/grunt-csscomb/blob/master/LICENSE-MIT"
     }
   ],
   "main": "Gruntfile.js",
@@ -39,7 +39,8 @@
   },
   "keywords": [
     "gruntplugin",
-    "CSSComb",
-    "sort"
+    "CSScomb",
+    "Sass",
+    "LESS"
   ]
 }

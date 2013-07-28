@@ -1,4 +1,4 @@
-# grunt-csscomb [![Build Status](https://secure.travis-ci.org/t32k/grunt-csscomb.png?branch=master)](http://travis-ci.org/t32k/grunt-csscomb) [![NPM version](https://badge.fury.io/js/grunt-csscomb.png)](http://badge.fury.io/js/grunt-csscomb)
+# grunt-csscomb [![Build Status](https://secure.travis-ci.org/csscomb/grunt-csscomb.png?branch=master)](http://travis-ci.org/csscomb/grunt-csscomb) [![NPM version](https://badge.fury.io/js/grunt-csscomb.png)](http://badge.fury.io/js/grunt-csscomb)
 
 > The grunt plugin for sorting CSS properties in specific order. 
 
@@ -76,6 +76,7 @@ grunt.initConfig({
 
 ## Release History
 
++ v0.4.0: Move to csscomb's repository.
 + v0.3.0: Fix sort option bug.
 + v0.2.0: Fix bugs.
 + v0.1.0: Release.
