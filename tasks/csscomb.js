@@ -6,25 +6,21 @@
  * Licensed under the MIT license.
  */
 'use strict';
+module.exports = function(grunt) {
 
-module.exports = function (grunt) {
-
-  grunt.registerMultiTask('csscomb', 'Sorting CSS properties in specific order.', function () {
-
+  grunt.registerMultiTask('csscomb', 'Sorting CSS properties in specific order.', function() {
     var fs = require('fs'),
-        path = require('path'),
-        exec = require('child_process').exec;
-
+      path = require('path'),
+      exec = require('child_process').exec;
     var done = this.async(),
-        realPath = path.dirname(fs.realpathSync(__filename)),
-        cssComb = 'php ' + realPath + '/lib/csscomb.php',
-        fileSrc = '',
-        fileDest = '',
-        fileSort = '',
-        options = this.options({
-          sortOrder: null
-        });
-
+      realPath = path.dirname(fs.realpathSync(__filename)),
+      cssComb = 'php ' + realPath + '/lib/csscomb.php',
+      fileSrc = '',
+      fileDest = '',
+      fileSort = '',
+      options = this.options({
+        sortOrder: null
+      });
     if (options.sortOrder !== null) {
       if (grunt.file.exists(options.sortOrder)) {
         fileSort = ' -s ' + options.sortOrder;
@@ -35,17 +31,15 @@ module.exports = function (grunt) {
     }
 
     function puts(error, stdout, stderr) {
-      grunt.log.ok(stdout);
       if (error !== null) {
         grunt.log.error(error);
-        done(false);
       } else {
-        done(true);
+        grunt.log.ok(stdout);
       }
     }
 
-    this.files.forEach(function (file) {
-      fileSrc = file.src.filter(function (filepath) {
+    this.files.forEach(function(file) {
+      fileSrc = file.src.filter(function(filepath) {
         // Remove nonexistent files (it's up to you to filter or warn here).
         if (!grunt.file.exists(filepath)) {
           grunt.log.warn('Source file "' + filepath + '" not found.');
@@ -53,22 +47,17 @@ module.exports = function (grunt) {
         } else {
           return true;
         }
-      }).map(function (filepath) {
+      }).map(function(filepath) {
         return filepath;
       });
-
       fileSrc = ' -i ' + fileSrc;
       if (file.dest !== null) {
         fileDest = ' -o ' + file.dest;
       }
-
       var command = cssComb + fileSort + fileSrc + fileDest;
       exec(command, puts);
-
       // grunt.log.writeln('`' + command + '` was initiated.');
-
     });
-
   });
 
 };
