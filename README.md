@@ -49,9 +49,15 @@ A string value that is used to specify custom-sort-order.json file path.
 
 ```js
 grunt.initConfig({
-  csscomb: {
+  foo : {
     files: {
       'dest/resorted-foo.css': ['src/foo.css'],
+    },
+  },
+  bar : {
+    files: {
+      'dest/resorted-foo.css': ['src/foo.css'],
+      'dest/resorted-bar.css': ['src/bar.css'],
     },
   },
 })
@@ -76,7 +82,7 @@ grunt.initConfig({
 
 ## Release History
 
-+ v0.5.0: Add error handling.
++ v0.5.0: Enable multiple files.
 + v0.4.0: Move to csscomb's repository.
 + v0.3.0: Fix sort option bug.
 + v0.2.0: Fix bugs.
