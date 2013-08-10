@@ -1,0 +1,13 @@
+.multi2 {
+	width: 10px;
+	border: 1px #fff solid;
+	position: absolute;
+	z-index: 10;
+	margin: 10px;
+	left: 10px;
+	height: 10px;
+	float: left;
+	top: 10px;
+	display: table;
+	padding: 10px;
+}

@@ -1,0 +1,13 @@
+.multi1 {
+	text-align: center;
+	border-color: 1px #000 solid;
+	background-color: red;
+	height: 100px;
+	display: block;
+	font-weight: bold;
+	width: 100px;
+	max-height: 44px;
+	vertical-align: 5px;
+	visibility: hidden;
+	z-index: 100;
+}
