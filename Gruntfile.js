@@ -22,7 +22,7 @@ module.exports = function(grunt) {
         jshintrc: '.jshintrc',
       },
     },
-
+    
     // Before generating any new files, remove any previously-created files.
     clean: {
       tests: ['test/fixtures/tmp_*.css'],
@@ -30,17 +30,23 @@ module.exports = function(grunt) {
 
     // Configuration to be run (and then tested).
     csscomb: {
-      default_option: {
+      main: {
         files: {
           'test/fixtures/tmp_resort.css': ['test/fixtures/style.css'],
         }
       },
-      sort_option: {
+      custom: {
         options: {
           sortOrder: 'test/fixtures/sort.json'
         },
         files: {
           'test/fixtures/tmp_customsort.css': ['test/fixtures/style.css'],
+        }
+      },
+      multiple: {
+        files: {
+          'test/fixtures/tmp_multi1.css': ['test/fixtures/multi1.css'],
+          'test/fixtures/tmp_multi2.css': ['test/fixtures/multi2.css'],
         }
       }
     },

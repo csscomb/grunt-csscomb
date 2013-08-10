@@ -2,32 +2,8 @@
 
 var grunt = require('grunt');
 
-/*
-  ======== A Handy Little Nodeunit Reference ========
-  https://github.com/caolan/nodeunit
-
-  Test methods:
-    test.expect(numAssertions)
-    test.done()
-  Test assertions:
-    test.ok(value, [message])
-    test.equal(actual, expected, [message])
-    test.notEqual(actual, expected, [message])
-    test.deepEqual(actual, expected, [message])
-    test.notDeepEqual(actual, expected, [message])
-    test.strictEqual(actual, expected, [message])
-    test.notStrictEqual(actual, expected, [message])
-    test.throws(block, [error], [message])
-    test.doesNotThrow(block, [error], [message])
-    test.ifError(value)
-*/
-
 exports.csscomb = {
-  setUp: function(done) {
-    // setup here if necessary
-    done();
-  },
-  default_option: function(test) {
+  main: function(test) {
     test.expect(1);
 
     var actual = grunt.file.read('test/fixtures/tmp_resort.css');
@@ -36,12 +12,25 @@ exports.csscomb = {
 
     test.done();
   },
-  sort_option: function(test) {
+  custom: function(test) {
     test.expect(1);
 
     var actual = grunt.file.read('test/fixtures/tmp_customsort.css');
     var expected = grunt.file.read('test/expected/customsort.css');
     test.equal(actual, expected, 'sholud be custom sorted.');
+
+    test.done();
+  },
+  mutiple: function(test) {
+    test.expect(2);
+
+    var actual = grunt.file.read('test/fixtures/tmp_multi1.css');
+    var expected = grunt.file.read('test/expected/multi1.css');
+    test.equal(actual, expected, 'sholud be sorted.');
+
+    var actual2 = grunt.file.read('test/fixtures/tmp_multi2.css');
+    var expected2 = grunt.file.read('test/expected/multi2.css');
+    test.equal(actual2, expected2, 'sholud be sorted.');
 
     test.done();
   }

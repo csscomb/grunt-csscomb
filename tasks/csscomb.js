@@ -10,17 +10,19 @@ module.exports = function(grunt) {
 
   grunt.registerMultiTask('csscomb', 'Sorting CSS properties in specific order.', function() {
     var fs = require('fs'),
-      path = require('path'),
-      exec = require('child_process').exec;
-    var done = this.async(),
-      realPath = path.dirname(fs.realpathSync(__filename)),
-      cssComb = 'php ' + realPath + '/lib/csscomb.php',
-      fileSrc = '',
-      fileDest = '',
-      fileSort = '',
-      options = this.options({
-        sortOrder: null
-      });
+        path = require('path'),
+        exec = require('child_process').exec;
+    var command,
+        done = this.async(),
+        realPath = path.dirname(fs.realpathSync(__filename)),
+        cssComb = 'php ' + realPath + '/lib/csscomb.php',
+        fileSrc = '',
+        fileDest = '',
+        fileSort = '',
+        options = this.options({
+          sortOrder: null
+        });
+
     if (options.sortOrder !== null) {
       if (grunt.file.exists(options.sortOrder)) {
         fileSort = ' -s ' + options.sortOrder;
@@ -33,6 +35,7 @@ module.exports = function(grunt) {
     function puts(error, stdout, stderr) {
       if (error !== null) {
         grunt.log.error(error);
+
       } else {
         grunt.log.ok(stdout);
       }
@@ -54,10 +57,10 @@ module.exports = function(grunt) {
       if (file.dest !== null) {
         fileDest = ' -o ' + file.dest;
       }
-      var command = cssComb + fileSort + fileSrc + fileDest;
+      command = cssComb + fileSort + fileSrc + fileDest;
       exec(command, puts);
-      // grunt.log.writeln('`' + command + '` was initiated.');
+      grunt.verbose.writeln('`' + command + '` was initiated.');
     });
+                
   });
-
 };

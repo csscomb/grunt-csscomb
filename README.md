@@ -76,6 +76,7 @@ grunt.initConfig({
 
 ## Release History
 
++ v0.5.0: Add error handling.
 + v0.4.0: Move to csscomb's repository.
 + v0.3.0: Fix sort option bug.
 + v0.2.0: Fix bugs.
