@@ -11,57 +11,43 @@ module.exports = function (grunt) {
   grunt.registerMultiTask('csscomb', 'Sorting CSS properties in specific order.', function () {
 
     var async = require('async'),
-        fs = require('fs'),
-        path = require('path'),
-        realPath = path.dirname(fs.realpathSync(__filename)),
-        done = this.async();
+      Comb = require('csscomb'),
+      defaultConfig = require('../node_modules/csscomb/.csscomb.json'),
+      done = this.async();
 
     async.eachSeries(this.files, function (file, next) {
-      var args = [],
-          child = {
-            cmd: 'php',
-            args: args
-          },
-          options = grunt.task.current.options({
-            sortOrder: null
-          });
+      // Get config file from task's options:
+      var config = grunt.task.current.options().sortOrder;
 
-      args.push(realPath + '/lib/csscomb.php');
-
-      if (options.sortOrder !== null) {
-        if (grunt.file.exists(options.sortOrder)) {
-          args.push('-s', options.sortOrder);
-        } else {
-          grunt.log.error('Custom sort .json file not found.');
-          return false;
-        }
+      // Check if config file is set and exists. If not, use default one:
+      if (config && grunt.file.exists(config)) {
+        grunt.log.ok('Using custom config file "' + config + '"...');
+        config = grunt.file.readJSON(config);
+      } else {
+        config = defaultConfig;
       }
 
-      var fileSrc = file.src.filter(function (filepath) {
-        // Remove nonexistent files (it's up to you to filter or warn here).
-        if (!grunt.file.exists(filepath)) {
-          grunt.log.warn('Source file "' + filepath + '" not found.');
-          return false;
-        } else {
-          return filepath;
-        }
-      });
-      args.push('-i', fileSrc);
-
-      if (file.dest !== null) {
-        args.push('-o', file.dest);
+      // Check if source file exists. If not, display a warning:
+      if (file.src.length === 0) {
+        grunt.log.error('Source file "' + file.orig.src + '" not found.');
+        return;
       }
 
-      grunt.util.spawn(child, function (error, result, code) {
-        if (error !== null) {
-          grunt.log.error(error);
-        } else {
-          grunt.log.ok(result);
-          next();
-        }
-      });
-      grunt.verbose.ok('`php ' + child.args.join(' ') + '` was initiated.');
+      // Create a new instance of csscomb and configure it:
+      var comb = new Comb();
+      comb.configure(config);
+
+      // Get CSS from a source file:
+      var css = grunt.file.read(file.src);
+      // Comb it:
+      grunt.log.ok('Sorting file "' + file.src + '"...');
+      var combed = comb.processString(css);
+      // Write result to a destination file:
+      grunt.file.write(file.dest, combed);
+      grunt.log.ok('OK.');
+
+      // Repeat:
+      next();
     }, done);
-
   });
 };

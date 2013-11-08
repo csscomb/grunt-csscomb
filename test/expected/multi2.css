@@ -1,13 +1,17 @@
-.multi2 {
-	position: absolute;
-	top: 10px;
-	left: 10px;
-	z-index: 10;
-	display: table;
-	float: left;
-	margin: 10px;
-	padding: 10px;
-	width: 10px;
-	height: 10px;
-	border: 1px #fff solid;
+.multi2
+{
+    position: absolute;
+    z-index: 10;
+    top: 10px;
+    left: 10px;
+
+    display: table;
+    float: left;
+
+    width: 10px;
+    height: 10px;
+    margin: 10px;
+    padding: 10px;
+
+    border: 1px #fff solid;
 }
