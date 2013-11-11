@@ -82,6 +82,7 @@ grunt.initConfig({
 
 ## Release History
 
++ v1.1.0: Improve process.
 + v1.0.0: Support [csscomb.js](http://github.com/csscomb/csscomb.js).
 + v0.5.0: Enable multiple files.
 + v0.4.0: Move to csscomb's repository.
