@@ -1,10 +1,10 @@
 # grunt-csscomb [![Build Status](https://secure.travis-ci.org/csscomb/grunt-csscomb.png?branch=master)](http://travis-ci.org/csscomb/grunt-csscomb) [![NPM version](https://badge.fury.io/js/grunt-csscomb.png)](http://badge.fury.io/js/grunt-csscomb)
 
-> The grunt plugin for sorting CSS properties in specific order. 
+> The grunt plugin for sorting CSS properties in specific order.
 
 ## Getting Started
 
-This plugin requires Grunt `~0.4.1` and [requires PHP.](https://github.com/csscomb/CSScomb/wiki/Requirements)
+This plugin requires Grunt `~0.4.1`.
 
 If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
 
@@ -82,6 +82,7 @@ grunt.initConfig({
 
 ## Release History
 
++ v1.0.0: Support [csscomb.js](http://github.com/csscomb/csscomb.js).
 + v0.5.0: Enable multiple files.
 + v0.4.0: Move to csscomb's repository.
 + v0.3.0: Fix sort option bug.
