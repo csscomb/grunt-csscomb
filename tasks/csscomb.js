@@ -1,8 +1,8 @@
 /*
  * grunt-csscomb
- * https://github.com/t32k/grunt-csscomb
+ * https://github.com/csscomb/grunt-csscomb
  *
- * Copyright (c) 2013 Koji Ishimoto
+ * Copyright (c) 2013 Koji Ishimoto, contributors
  * Licensed under the MIT license.
  */
 'use strict';
@@ -11,9 +11,9 @@ module.exports = function (grunt) {
   grunt.registerMultiTask('csscomb', 'Sorting CSS properties in specific order.', function () {
 
     var async = require('async'),
-      Comb = require('csscomb'),
-      defaultConfig = require('../node_modules/csscomb/.csscomb.json'),
-      done = this.async();
+        Comb = require('csscomb'),
+        defaultConfig = require('../node_modules/csscomb/.csscomb.json'),
+        done = this.async();
 
     async.eachSeries(this.files, function (file, next) {
       // Get config file from task's options:
