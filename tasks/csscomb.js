@@ -6,23 +6,43 @@
  * Licensed under the MIT license.
  */
 'use strict';
+
+var path = require('path');
+
 module.exports = function (grunt) {
 
   grunt.registerMultiTask('csscomb', 'Sorting CSS properties in specific order.', function () {
 
     var Comb = require('csscomb'),
-      comb = new Comb(),
-      defaultConfig = comb.getConfig('csscomb');
+      comb = new Comb();
+
+    function getConfigPath(configPath) {
+      var HOME = process.env.HOME || process.env.HOMEPATH || process.env.USERPROFILE;
+
+      configPath = configPath || process.cwd() + '/.csscomb.json';
+
+      // If we've finally found a config, return its path:
+      if (grunt.file.exists(configPath)) return configPath;
+
+      // If we are in HOME dir already and yet no config file, quit:
+      if (path.dirname(configPath) === HOME) return;
+
+      // If there is no config in this directory, go one level up and look for
+      // a config there:
+      configPath = path.dirname(path.dirname(configPath)) + '/.csscomb.json';
+      return getConfigPath(configPath);
+    }
 
     // Get config file from task's options:
-    var config = grunt.task.current.options().sortOrder;
+    var config = grunt.task.current.options().config || getConfigPath();
 
     // Check if config file is set and exists. If not, use default one:
     if (config && grunt.file.exists(config)) {
       grunt.log.ok('Using custom config file "' + config + '"...');
       config = grunt.file.readJSON(config);
     } else {
-      config = defaultConfig;
+      grunt.log.ok('Using default config file...');
+      config = comb.getConfig('csscomb');
     }
 
     // Configure csscomb:
