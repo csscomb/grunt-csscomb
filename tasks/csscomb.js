@@ -11,7 +11,8 @@ module.exports = function (grunt) {
   grunt.registerMultiTask('csscomb', 'Sorting CSS properties in specific order.', function () {
 
     var Comb = require('csscomb'),
-      defaultConfig = require('../node_modules/csscomb/.csscomb.json');
+      comb = new Comb(),
+      defaultConfig = comb.getConfig('csscomb');
 
     // Get config file from task's options:
     var config = grunt.task.current.options().sortOrder;
@@ -24,11 +25,10 @@ module.exports = function (grunt) {
       config = defaultConfig;
     }
 
-    this.files.forEach(function (f) {
+    // Configure csscomb:
+    comb.configure(config);
 
-      // Create a new instance of csscomb and configure it:
-      var comb = new Comb();
-      comb.configure(config);
+    this.files.forEach(function (f) {
 
       f.src.filter(function (filepath) {
         // Warn on and remove invalid source files (if nonull was set).
