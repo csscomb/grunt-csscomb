@@ -14,7 +14,7 @@ module.exports = function (grunt) {
   grunt.registerMultiTask('csscomb', 'Sorting CSS properties in specific order.', function () {
 
     var Comb = require('csscomb'),
-      comb = new Comb();
+        comb = new Comb();
 
     function getConfigPath(configPath) {
       var HOME = process.env.HOME || process.env.HOMEPATH || process.env.USERPROFILE;
@@ -22,10 +22,13 @@ module.exports = function (grunt) {
       configPath = configPath || process.cwd() + '/.csscomb.json';
 
       // If we've finally found a config, return its path:
-      if (grunt.file.exists(configPath)) return configPath;
-
+      if (grunt.file.exists(configPath)) {
+          return configPath;
+      }
       // If we are in HOME dir already and yet no config file, quit:
-      if (path.dirname(configPath) === HOME) return;
+      if (path.dirname(configPath) === HOME) {
+          return;
+      }
 
       // If there is no config in this directory, go one level up and look for
       // a config there:

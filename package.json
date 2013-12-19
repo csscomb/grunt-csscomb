@@ -1,13 +1,14 @@
 {
   "name": "grunt-csscomb",
   "description": "The grunt plugin for sorting CSS properties in specific order.",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "homepage": "https://github.com/csscomb/grunt-csscomb",
   "author": {
     "name": "Koji Ishimoto",
     "email": "ijok.ijok@gmail.com",
-    "url": "http://en.t32k.me"
+    "url": "http://t32k.me/"
   },
+  "contributors": ['Tony Ganch'],
   "repository": {
     "type": "git",
     "url": "https://github.com/csscomb/grunt-csscomb.git"
@@ -35,10 +36,10 @@
     "grunt-contrib-jshint": "~0.6.0",
     "grunt-contrib-clean": "~0.4.0",
     "grunt-contrib-nodeunit": "~0.2.0",
-    "grunt": "~0.4.1"
+    "grunt": "0.4.x"
   },
   "peerDependencies": {
-    "grunt": "~0.4.1"
+    "grunt": "0.4.x"
   },
   "keywords": [
     "gruntplugin",

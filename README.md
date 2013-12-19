@@ -4,7 +4,7 @@
 
 ## Getting Started
 
-This plugin requires Grunt `~0.4.1`.
+This plugin requires Grunt `0.4.x`.
 
 If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
 
@@ -38,11 +38,11 @@ grunt.initConfig({
 
 ### Options
 
-#### options.sortOrder
+#### options.config
 Type: `String`
 Default value: `null`
 
-A string value that is used to specify custom-sort-order.json file path.
+A string value that is used to specify custom-csscomb.json file path.
 
 
 ### Usage Examples
@@ -65,13 +65,13 @@ grunt.initConfig({
 
 #### Custom Options
 
-You can set the `sortOrder` option if you want to use the order to which you are accustomed to.
+You can set the `config` option if you want to use the configuration which you are accustomed to.
 
 ```js
 grunt.initConfig({
   csscomb: {
     options: {
-      sortOrder: '/path/to/custom-sort-order.json'
+      config: '/path/to/config.json'
     },
     files: {
       'dest/resorted-foo.css': ['src/foo.css'],
@@ -82,6 +82,7 @@ grunt.initConfig({
 
 ## Release History
 
++ v1.2.0: Update csscomb.js to version 2.0 and change `sortOrder` to `config`.
 + v1.1.0: Improve process.
 + v1.0.0: Support [csscomb.js](http://github.com/csscomb/csscomb.js).
 + v0.5.0: Enable multiple files.
