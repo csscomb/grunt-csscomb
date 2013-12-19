@@ -22,7 +22,7 @@ module.exports = function(grunt) {
         jshintrc: '.jshintrc',
       },
     },
-    
+
     // Before generating any new files, remove any previously-created files.
     clean: {
       tests: ['test/fixtures/tmp_*.css'],
@@ -37,7 +37,7 @@ module.exports = function(grunt) {
       },
       custom: {
         options: {
-          sortOrder: 'test/fixtures/sort.json'
+          config: 'test/fixtures/sort.json'
         },
         files: {
           'test/fixtures/tmp_customsort.css': ['test/fixtures/style.css'],
