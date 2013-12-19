@@ -70,12 +70,14 @@ You can set the `config` option if you want to use the configuration which you a
 ```js
 grunt.initConfig({
   csscomb: {
-    options: {
-      config: '/path/to/config.json'
-    },
-    files: {
-      'dest/resorted-foo.css': ['src/foo.css'],
-    },
+    dist : {
+      options: {
+        config: '/path/to/config.json'
+      },
+      files: {
+        'dest/resorted-foo.css': ['src/foo.css'],
+      }
+    }
   },
 })
 ```
