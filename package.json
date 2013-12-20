@@ -1,16 +1,22 @@
 {
     "name": "grunt-csscomb",
     "description": "The grunt plugin for sorting CSS properties in specific order.",
-    "version": "1.2.0",
+    "version": "1.2.1",
     "homepage": "https://github.com/csscomb/grunt-csscomb",
     "author": {
         "name": "Koji Ishimoto",
         "email": "ijok.ijok@gmail.com",
         "url": "http://t32k.me/"
     },
-    "contributors": [
-        "Tony Ganch"
-    ],
+    "contributors": [{
+        "name": "Tony Ganch",
+        "email": "tonyganch+github@gmail.com",
+        "web": "http://tonyganch.com/"
+    }, {
+        "name": "Shogo Sensui",
+        "email": "orz1000ch@gmail.com",
+        "web": "http://1000ch.net/"
+    }],
     "repository": {
         "type": "git",
         "url": "https://github.com/csscomb/grunt-csscomb.git"
@@ -18,30 +24,28 @@
     "bugs": {
         "url": "https://github.com/csscomb/grunt-csscomb/issues"
     },
-    "licenses": [
-        {
-            "type": "MIT",
-            "url": "https://github.com/csscomb/grunt-csscomb/blob/master/LICENSE-MIT"
-        }
-    ],
+    "licenses": [{
+        "type": "MIT",
+        "url": "https://github.com/csscomb/grunt-csscomb/blob/master/LICENSE-MIT"
+    }],
     "main": "Gruntfile.js",
     "engines": {
-        "node": ">= 0.8.0"
+        "node": ">= 0.10.0"
     },
     "scripts": {
         "test": "grunt test"
     },
     "dependencies": {
-        "csscomb": "2.0.x"
+        "csscomb": "~2.0.0"
     },
     "devDependencies": {
         "grunt-contrib-jshint": "~0.6.0",
         "grunt-contrib-clean": "~0.4.0",
         "grunt-contrib-nodeunit": "~0.2.0",
-        "grunt": "0.4.x"
+        "grunt": "~0.4.2"
     },
     "peerDependencies": {
-        "grunt": "0.4.x"
+        "grunt": "~0.4.2"
     },
     "keywords": [
         "gruntplugin",

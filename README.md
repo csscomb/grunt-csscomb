@@ -25,15 +25,15 @@ In your project's Gruntfile, add a section named `csscomb` to the data object pa
 
 ```js
 grunt.initConfig({
-  csscomb: {
-    options: {
-      // Task-specific options go here.
-    },
-    your_target: {
-      // Target-specific file lists and/or options go here.
-    },
-  },
-})
+    csscomb: {
+        options: {
+            // Task-specific options go here.
+        },
+        your_target: {
+            // Target-specific file lists and/or options go here.
+        },
+    }
+});
 ```
 
 ### Options
@@ -44,23 +44,24 @@ Default value: `null`
 
 A string value that is used to specify custom-csscomb.json file path.
 
-
 ### Usage Examples
 
 ```js
 grunt.initConfig({
-  foo : {
-    files: {
-      'dest/resorted-foo.css': ['src/foo.css'],
-    },
-  },
-  bar : {
-    files: {
-      'dest/resorted-foo.css': ['src/foo.css'],
-      'dest/resorted-bar.css': ['src/bar.css'],
-    },
-  },
-})
+    csscomb: {
+        foo: {
+            files: {
+                'dest/resorted-foo.css': ['src/foo.css'],
+            },
+        },
+        bar: {
+            files: {
+                'dest/resorted-foo.css': ['src/foo.css'],
+                'dest/resorted-bar.css': ['src/bar.css'],
+            },
+        }
+    }
+});
 ```
 
 #### Custom Options
@@ -69,21 +70,40 @@ You can set the `config` option if you want to use the configuration which you a
 
 ```js
 grunt.initConfig({
-  csscomb: {
-    dist : {
-      options: {
-        config: '/path/to/config.json'
-      },
-      files: {
-        'dest/resorted-foo.css': ['src/foo.css'],
-      }
+    csscomb: {
+        dist: {
+            options: {
+                config: '/path/to/config.json'
+            },
+            files: {
+                'dest/resorted-foo.css': ['src/foo.css'],
+            }
+        }
     }
-  },
-})
+});
+```
+
+#### Dynamic Mappings
+
+You can process many individual files of directory with a few additional properties.
+
+```js
+grunt.initConfig({
+    csscomb: {
+        dynamic_mappings: {
+            expand: true,
+            cwd: '/assets/css/',
+            src: ['*.css', '!*.resorted.css'],
+            dest: '/assets/dest/css/',
+            ext: '.resorted.css'
+        }
+    }
+});
 ```
 
 ## Release History
 
++ v1.2.1: Bump v1.2.1
 + v1.2.0: Update csscomb.js to version 2.0 and change `sortOrder` to `config`.
 + v1.1.0: Improve process.
 + v1.0.0: Support [csscomb.js](http://github.com/csscomb/csscomb.js).
