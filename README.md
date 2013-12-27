@@ -103,7 +103,9 @@ grunt.initConfig({
 
 ## Release History
 
-+ v1.2.1: Bump v1.2.1
+
++ v2.0.0: Bump up
++ v1.2.1: Bump up
 + v1.2.0: Update csscomb.js to version 2.0 and change `sortOrder` to `config`.
 + v1.1.0: Improve process.
 + v1.0.0: Support [csscomb.js](http://github.com/csscomb/csscomb.js).
