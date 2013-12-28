@@ -20,7 +20,7 @@ module.exports = function (grunt) {
         function getConfigPath(configPath) {
             var dirname, parentDirname;
 
-            configPath = configPath || process.cwd() + '/.csscomb.json';
+            configPath = configPath || path.join(process.cwd(), '.csscomb.json');
 
             // If we've finally found a config, return its path:
             if (grunt.file.exists(configPath)) {
@@ -41,7 +41,7 @@ module.exports = function (grunt) {
 
             // If there is no config in this directory, go one level up and look for
             // a config there:
-            configPath = parentDirname + '/.csscomb.json';
+            configPath = path.join(parentDirname, '.csscomb.json');
             return getConfigPath(configPath);
         }
 
