@@ -1,22 +1,27 @@
 {
     "name": "grunt-csscomb",
     "description": "The grunt plugin for sorting CSS properties in specific order.",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "homepage": "https://github.com/csscomb/grunt-csscomb",
-    "author": {
-        "name": "Koji Ishimoto",
-        "email": "ijok.ijok@gmail.com",
-        "url": "http://t32k.me/"
-    },
-    "contributors": [{
-        "name": "Tony Ganch",
-        "email": "tonyganch+github@gmail.com",
-        "web": "http://tonyganch.com/"
-    }, {
-        "name": "Shogo Sensui",
-        "email": "orz1000ch@gmail.com",
-        "web": "http://1000ch.net/"
-    }],
+    "author": [
+        {
+            "name": "Koji Ishimoto",
+            "email": "ijok.ijok@gmail.com",
+            "url": "http://t32k.me/"
+        },
+        {
+            "name": "Tony Ganch",
+            "email": "tonyganch+github@gmail.com",
+            "web": "http://tonyganch.com/"
+        }
+    ],
+    "contributors": [
+        {
+            "name": "Shogo Sensui",
+            "email": "orz1000ch@gmail.com",
+            "web": "http://1000ch.net/"
+        }
+    ],
     "repository": {
         "type": "git",
         "url": "https://github.com/csscomb/grunt-csscomb.git"
@@ -24,10 +29,12 @@
     "bugs": {
         "url": "https://github.com/csscomb/grunt-csscomb/issues"
     },
-    "licenses": [{
-        "type": "MIT",
-        "url": "https://github.com/csscomb/grunt-csscomb/blob/master/LICENSE-MIT"
-    }],
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "https://github.com/csscomb/grunt-csscomb/blob/master/LICENSE-MIT"
+        }
+    ],
     "main": "Gruntfile.js",
     "engines": {
         "node": ">= 0.10.0"
