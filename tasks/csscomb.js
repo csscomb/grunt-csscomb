@@ -14,25 +14,34 @@ module.exports = function (grunt) {
     grunt.registerMultiTask('csscomb', 'Sorting CSS properties in specific order.', function () {
 
         var Comb = require('csscomb'),
-            comb = new Comb();
+            comb = new Comb(),
+            HOME = process.env.HOME || process.env.HOMEPATH || process.env.USERPROFILE;
 
         function getConfigPath(configPath) {
-            var HOME = process.env.HOME || process.env.HOMEPATH || process.env.USERPROFILE;
+            var dirname, parentDirname;
 
-            configPath = configPath || process.cwd() + '/.csscomb.json';
+            configPath = configPath || path.join(process.cwd(), '.csscomb.json');
 
             // If we've finally found a config, return its path:
             if (grunt.file.exists(configPath)) {
                 return configPath;
             }
-            // If we are in HOME dir already and yet no config file, quit:
-            if (path.dirname(configPath) === HOME) {
+
+            dirname = path.dirname(configPath);
+            parentDirname = path.dirname(dirname);
+
+            // If we are in HOME dir already and yet no config file, quit.
+            // If project is located not under HOME, compare to root instead.
+            // Since there appears to be no good way to get root path in
+            // Windows, assume that if current dir has no parent dir, we're in
+            // root.
+            if (dirname === HOME || dirname === parentDirname) {
                 return;
             }
 
             // If there is no config in this directory, go one level up and look for
             // a config there:
-            configPath = path.dirname(path.dirname(configPath)) + '/.csscomb.json';
+            configPath = path.join(parentDirname, '.csscomb.json');
             return getConfigPath(configPath);
         }
 
