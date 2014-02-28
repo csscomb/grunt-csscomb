@@ -72,15 +72,15 @@ module.exports = function (grunt) {
                 }
             }).forEach(function (src) {
 
-                    // Get CSS from a source file:
-                    var css = grunt.file.read(src);
+                // Get CSS from a source file:
+                var css = grunt.file.read(src);
 
-                    // Comb it:
-                    grunt.log.ok('Sorting file "' + src + '"...');
-                    var syntax = src.split('.').pop();
-                    var combed = comb.processString(css, syntax);
-                    grunt.file.write(f.dest, combed);
-                });
+                // Comb it:
+                grunt.log.ok('Sorting file "' + src + '"...');
+                var syntax = src.split('.').pop();
+                var combed = comb.processString(css, syntax);
+                grunt.file.write(f.dest, combed);
+            });
         });
     });
 };
