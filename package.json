@@ -1,7 +1,7 @@
 {
     "name": "grunt-csscomb",
     "description": "The grunt plugin for sorting CSS properties in specific order.",
-    "version": "2.0.1",
+    "version": "3.0.0-1",
     "homepage": "https://github.com/csscomb/grunt-csscomb",
     "author": [
         {
