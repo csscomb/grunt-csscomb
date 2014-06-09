@@ -54,7 +54,7 @@ module.exports = function (grunt) {
             config = grunt.file.readJSON(config);
         } else {
             grunt.log.ok('Using default config file...');
-            config = comb.getConfig('csscomb');
+            config = Comb.getConfig('csscomb');
         }
 
         // Configure csscomb:
