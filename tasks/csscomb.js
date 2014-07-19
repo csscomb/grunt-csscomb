@@ -54,7 +54,7 @@ module.exports = function (grunt) {
             config = grunt.file.readJSON(config);
         } else {
             grunt.log.ok('Using default config file...');
-            config = comb.getConfig('csscomb');
+            config = Comb.getConfig('csscomb');
         }
 
         // Configure csscomb:
@@ -78,7 +78,7 @@ module.exports = function (grunt) {
                 // Comb it:
                 grunt.log.ok('Sorting file "' + src + '"...');
                 var syntax = src.split('.').pop();
-                var combed = comb.processString(css, syntax);
+                var combed = comb.processString(css, { syntax: syntax });
                 grunt.file.write(f.dest, combed);
             });
         });
