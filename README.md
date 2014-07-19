@@ -103,11 +103,11 @@ grunt.initConfig({
 
 ## Release History
 
-
++ v3.0.0: Update csscomb.js to v3.0 but `grunt-csscomb` API doesn't change.
 + v2.0.1: Stop searching config if we reach root directory.
 + v2.0.0: Bump up.
 + v1.2.1: Bump up.
-+ v1.2.0: Update csscomb.js to version 2.0 and change `sortOrder` to `config`.
++ v1.2.0: Update csscomb.js to v2.0 and change API `sortOrder` to `config`.
 + v1.1.0: Improve process.
 + v1.0.0: Support [csscomb.js](http://github.com/csscomb/csscomb.js).
 + v0.5.0: Enable multiple files.
