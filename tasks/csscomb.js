@@ -78,7 +78,7 @@ module.exports = function (grunt) {
                 // Comb it:
                 grunt.log.ok('Sorting file "' + src + '"...');
                 var syntax = src.split('.').pop();
-                var combed = comb.processString(css, syntax);
+                var combed = comb.processString(css, { syntax: syntax });
                 grunt.file.write(f.dest, combed);
             });
         });
