@@ -31,7 +31,7 @@ grunt.initConfig({
         },
         your_target: {
             // Target-specific file lists and/or options go here.
-        },
+        }
     }
 });
 ```
@@ -51,14 +51,14 @@ grunt.initConfig({
     csscomb: {
         foo: {
             files: {
-                'dest/resorted-foo.css': ['src/foo.css'],
-            },
+                'dest/resorted-foo.css': ['src/foo.css']
+            }
         },
         bar: {
             files: {
                 'dest/resorted-foo.css': ['src/foo.css'],
-                'dest/resorted-bar.css': ['src/bar.css'],
-            },
+                'dest/resorted-bar.css': ['src/bar.css']
+            }
         }
     }
 });
@@ -76,7 +76,7 @@ grunt.initConfig({
                 config: '/path/to/config.json'
             },
             files: {
-                'dest/resorted-foo.css': ['src/foo.css'],
+                'dest/resorted-foo.css': ['src/foo.css']
             }
         }
     }
