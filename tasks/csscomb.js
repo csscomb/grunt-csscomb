@@ -74,12 +74,17 @@ module.exports = function (grunt) {
 
                 // Get CSS from a source file:
                 var css = grunt.file.read(src);
+                var combed;
 
                 // Comb it:
                 grunt.log.ok('Sorting file "' + src + '"...');
                 var syntax = src.split('.').pop();
-                var combed = comb.processString(css, { syntax: syntax });
-                grunt.file.write(f.dest, combed);
+                try {
+                    combed = comb.processString(css, { syntax: syntax });
+                    grunt.file.write(f.dest, combed);
+                } catch(e) {
+                    grunt.log.error(e);
+                }
             });
         });
     });
