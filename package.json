@@ -43,7 +43,7 @@
         "test": "grunt test"
     },
     "dependencies": {
-        "csscomb": "~3.0.0"
+        "csscomb": "~3.1.0"
     },
     "devDependencies": {
         "grunt": "^0.4.5",
