@@ -72,20 +72,65 @@ module.exports = function (grunt) {
                 }
             }).forEach(function (src) {
 
-                // Get CSS from a source file:
-                var css = grunt.file.read(src);
+                // Placeholder for our css content
+                var css;
                 var combed;
 
-                // Comb it:
-                grunt.log.ok('Sorting file "' + src + '"...');
-                var syntax = src.split('.').pop();
-                try {
-                    combed = comb.processString(css, { syntax: syntax });
-                    grunt.file.write(f.dest, combed);
-                } catch(e) {
-                    grunt.log.error(e);
+                if (shouldProcess(src, config)) {
+
+                    // Get CSS from a source file:
+                    css = grunt.file.read(src);
+
+                    // Comb it:
+                    grunt.log.ok('Sorting file "' + src + '"...');
+                    var syntax = src.split('.').pop();
+
+                    try {
+                        combed = comb.processString(css, { syntax: syntax });
+                        grunt.file.write(f.dest, combed);
+                    } catch(e) {
+                        grunt.log.error(e);
+                    }
+                } else {
+                    grunt.log.ok('Skipping file "' + src + '" because of exclude.');    
+                    grunt.file.copy(src, f.dest);
                 }
             });
         });
     });
+
+    function shouldProcess(src, config) {
+        var excludes = zip(
+            (config.exclude || []).map(function(pattern) {
+                return grunt.file.expand(pattern);
+            })
+        );
+        var ok = true;
+
+        if (excludes) {
+            var found = false;
+            src = src.replace(/^\.\//, '');
+            for (var i = 0, excludeLength = excludes.length; i < excludeLength && !found; i++) {
+                if (excludes[i].match(src)) {
+                    found = true;
+                }
+            }
+
+            ok = ok && !found;
+        }
+
+        return ok;
+    }
+
+    function zip(arrays) {
+        var returnArray = [];
+
+        arrays.forEach(function(value) {
+            value.forEach(function(item) {
+                returnArray.push(item);
+            });
+        });
+
+        return returnArray;
+    }
 };

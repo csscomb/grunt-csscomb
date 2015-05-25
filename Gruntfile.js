@@ -54,6 +54,16 @@ module.exports = function (grunt) {
                 src: ['*.css', '!*.resorted.css'],
                 dest: 'test/fixtures/dest/',
                 ext: '.resorted.css'
+            },
+            excludes: {
+                options: {
+                    config: 'test/fixtures/excludes/excludes.json'
+                },
+                expand: true,
+                cwd: 'test/fixtures/excludes/',
+                src: ['*.css', '!*.resorted.css'],
+                dest: 'test/fixtures/excludes/',
+                ext: '.resorted.css'
             }
         },
 
