@@ -71,6 +71,11 @@ module.exports = function (grunt) {
                     return true;
                 }
             }).forEach(function (src) {
+                var dest = f.dest;
+
+                if (!dest) {
+                    dest = grunt.file.expandMapping(src, '', { ext: f.ext || ''})[0].dest;
+                }
 
                 // Get CSS from a source file:
                 var css = grunt.file.read(src);
@@ -79,9 +84,10 @@ module.exports = function (grunt) {
                 // Comb it:
                 grunt.log.ok('Sorting file "' + src + '"...');
                 var syntax = src.split('.').pop();
+
                 try {
                     combed = comb.processString(css, { syntax: syntax });
-                    grunt.file.write(f.dest, combed);
+                    grunt.file.write(dest, combed);
                 } catch(e) {
                     grunt.log.error(e);
                 }
