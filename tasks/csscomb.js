@@ -72,9 +72,10 @@ module.exports = function (grunt) {
                 }
             }).forEach(function (src) {
                 var dest = f.dest;
+                var syntax = src.split('.').pop();
 
                 if (!dest) {
-                    dest = grunt.file.expandMapping(src, '', { ext: f.ext || ''})[0].dest;
+                    dest = grunt.file.expandMapping(src, '', { ext: f.ext || '.' + syntax})[0].dest;
                 }
 
                 // Get CSS from a source file:
@@ -83,6 +84,7 @@ module.exports = function (grunt) {
 
                 // Comb it:
                 grunt.log.ok('Sorting file "' + src + '"...');
+
                 var syntax = src.split('.').pop();
 
                 try {
