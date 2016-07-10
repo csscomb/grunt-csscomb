@@ -4,7 +4,7 @@
 
 ## Getting Started
 
-This plugin requires Grunt `0.4.x`.
+This plugin requires Grunt `>=0.4.x`.
 
 If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
 
@@ -103,6 +103,7 @@ grunt.initConfig({
 
 ## Release History
 
++ v3.1.1: Update grunt version.
 + v3.0.0: Update csscomb.js to v3.0 but `grunt-csscomb` API doesn't change.
 + v2.0.1: Stop searching config if we reach root directory.
 + v2.0.0: Bump up.
