@@ -46,5 +46,22 @@ exports.csscomb = {
         test.equal(actual2, expected2, 'sholud be sorted.');
 
         test.done();
+    },
+    excludes: function (test) {
+        test.expect(3);
+
+        var actual = grunt.file.read('test/fixtures/excludes/exclude1.resorted.css');
+        var expected = grunt.file.read('test/expected/exclude1.css');
+        test.equal(actual, expected, 'should be sorted.');
+
+        var actual2 = grunt.file.read('test/fixtures/excludes/exclude2.resorted.css');
+        var expected2 = grunt.file.read('test/expected/exclude2.css');
+        test.equal(actual2, expected2, 'should be sorted.');
+
+        var actual3 = grunt.file.read('test/fixtures/excludes/exclude2.resorted.css');
+        var expected3 = grunt.file.read('test/expected/exclude2-notignored.css');
+        test.notEqual(actual3, expected3, 'should not be sorted.');
+
+        test.done();
     }
 };
