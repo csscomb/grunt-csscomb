@@ -37,7 +37,7 @@
   ],
   "main": "Gruntfile.js",
   "engines": {
-    "node": ">= 0.10.0"
+    "node": ">= 8.0.0"
   },
   "scripts": {
     "test": "grunt test"
@@ -46,13 +46,13 @@
     "csscomb": "~4.2.0"
   },
   "devDependencies": {
-    "grunt": "^0.4.5",
+    "grunt": "^1.0.3",
     "grunt-contrib-clean": "^0.6.0",
-    "grunt-contrib-jshint": "^0.11.2",
+    "grunt-contrib-jshint": "^2.0.0",
     "grunt-contrib-nodeunit": "^0.4.1"
   },
   "peerDependencies": {
-    "grunt": ">=0.4.0"
+    "grunt": ">=1.0.0"
   },
   "keywords": [
     "gruntplugin",
