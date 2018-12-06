@@ -103,6 +103,7 @@ grunt.initConfig({
 
 ## Release History
 
++ v4.0.0: Update csscomb.js to v4; update dependencies.
 + v3.1.1: Update grunt version.
 + v3.0.0: Update csscomb.js to v3.0 but `grunt-csscomb` API doesn't change.
 + v2.0.1: Stop searching config if we reach root directory.
