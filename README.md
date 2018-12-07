@@ -101,9 +101,24 @@ grunt.initConfig({
 });
 ```
 
+#### Src Only
+
+If you provide only a `src` with no value for `dest`, then `dest` will automatically be set to the `src` directory.
+
+```js
+grunt.initConfig({
+    csscomb: {
+        src_only: {
+            src: ['foo/bar.css'],
+            ext: '.resorted.css'
+        }
+    }
+});
+```
+
 ## Release History
 
-+ v4.0.0: Update csscomb.js to v4; update dependencies.
++ v4.0.0: Update csscomb.js to v4; update dependencies; allow src only.
 + v3.1.1: Update grunt version.
 + v3.0.0: Update csscomb.js to v3.0 but `grunt-csscomb` API doesn't change.
 + v2.0.1: Stop searching config if we reach root directory.
