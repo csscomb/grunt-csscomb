@@ -46,5 +46,18 @@ exports.csscomb = {
         test.equal(actual2, expected2, 'should be sorted.');
 
         test.done();
+    },
+    src_only: function (test) {
+        test.expect(2);
+
+        var actual = grunt.file.read('test/fixtures/src/multi1.resorted.css');
+        var expected = grunt.file.read('test/expected/multi1.css');
+        test.equal(actual, expected, 'should be sorted.');
+
+        var actual2 = grunt.file.read('test/fixtures/src/multi2.resorted.css');
+        var expected2 = grunt.file.read('test/expected/multi2.css');
+        test.equal(actual2, expected2, 'should be sorted.');
+
+        test.done();
     }
 };

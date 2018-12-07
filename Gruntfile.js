@@ -24,7 +24,7 @@ module.exports = function (grunt) {
 
         // Before generating any new files, remove any previously-created files.
         clean: {
-            tests: ['test/fixtures/tmp_*.css','test/fixtures/dest/*.resorted.css'],
+            tests: ['test/fixtures/tmp_*.css', 'test/fixtures/dest/*.resorted.css', 'test/fixtures/src/*.resorted.css'],
         },
 
         // Configuration to be run (and then tested).
@@ -53,6 +53,10 @@ module.exports = function (grunt) {
                 cwd: 'test/fixtures/dest/',
                 src: ['*.css', '!*.resorted.css'],
                 dest: 'test/fixtures/dest/',
+                ext: '.resorted.css'
+            },
+            src_only: {
+                src: ['test/fixtures/src/*.css', '!test/fixtures/src/*.resorted.css'],
                 ext: '.resorted.css'
             }
         },
