@@ -1,7 +1,7 @@
 {
   "name": "grunt-csscomb",
   "description": "The grunt plugin for sorting CSS properties in specific order.",
-  "version": "3.1.1",
+  "version": "4.0.0",
   "homepage": "https://github.com/csscomb/grunt-csscomb",
   "author": [
     {
@@ -37,22 +37,22 @@
   ],
   "main": "Gruntfile.js",
   "engines": {
-    "node": ">= 0.10.0"
+    "node": ">= 6.0.0"
   },
   "scripts": {
     "test": "grunt test"
   },
   "dependencies": {
-    "csscomb": "~3.1.0"
+    "csscomb": "~4.2.0"
   },
   "devDependencies": {
-    "grunt": "^0.4.5",
-    "grunt-contrib-clean": "^0.6.0",
-    "grunt-contrib-jshint": "^0.11.2",
-    "grunt-contrib-nodeunit": "^0.4.1"
+    "grunt": "^1.0.3",
+    "grunt-contrib-clean": "^2.0.0",
+    "grunt-contrib-jshint": "^2.0.0",
+    "grunt-contrib-nodeunit": "^2.0.0"
   },
   "peerDependencies": {
-    "grunt": ">=0.4.0"
+    "grunt": ">=1.0.0"
   },
   "keywords": [
     "gruntplugin",

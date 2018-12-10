@@ -1,0 +1,19 @@
+.multi1
+{
+    font-weight: bold;
+
+    z-index: 100;
+
+    display: block;
+    visibility: hidden;
+
+    width: 100px;
+    height: 100px;
+    max-height: 44px;
+
+    text-align: center;
+    vertical-align: 5px;
+
+    border-color: 1px #000 solid;
+    background-color: red;
+}

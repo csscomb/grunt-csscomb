@@ -71,17 +71,21 @@ module.exports = function (grunt) {
                     return true;
                 }
             }).forEach(function (src) {
+                var dest = f.dest, 
+                syntax = src.split('.').pop();
+                if (!dest) {
+                    dest = grunt.file.expandMapping(src, '', { ext: f.ext || '.' + syntax })[0].dest;
+                }
 
                 // Get CSS from a source file:
                 var css = grunt.file.read(src);
-                var combed;
 
                 // Comb it:
                 grunt.log.ok('Sorting file "' + src + '"...');
-                var syntax = src.split('.').pop();
                 try {
-                    combed = comb.processString(css, { syntax: syntax });
-                    grunt.file.write(f.dest, combed);
+                    comb.processString(css, { syntax: syntax }).then(function(combed) {
+                        grunt.file.write(dest, combed);
+                    });
                 } catch(e) {
                     grunt.log.error(e);
                 }
